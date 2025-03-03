@@ -1,19 +1,28 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { apiCleint } from '../../utils/apiServis'
+import { productsUrl } from '../../utils/urls'
 
 const ProductsDetail = () => {
 	const [param, Setparam] = useState([])
 	const params = useParams()
 
-	const getProductDetail = () => {
-		axios(`https://dummyjson.com/products/${params.id}`)
-			.then(res => {
-				Setparam(res.data)
-			})
-			.catch(err => {
-				alert(err.message)
-			})
+	const getProductDetail = async () => {
+		let res = await apiCleint({
+			method: 'GET',
+			url: `${productsUrl}/${params.id}`,
+		})
+		console.log(res)
+		if (res.is_seccess) {
+			Setparam(res.data)
+		}
+		// axios(`https://dummyjson.com/products/${params.id}`)
+		// 	.then(res => {
+		// 		Setparam(res.data)
+		// 	})
+		// 	.catch(err => {
+		// 		alert(err.message)
+		// 	})
 	}
 
 	console.log(param)

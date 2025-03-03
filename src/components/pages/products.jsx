@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { FaCartShopping } from 'react-icons/fa6'
 import { Link } from 'react-router-dom'
 import { apiCleint } from '../../utils/apiServis'
+import { productsUrl } from '../../utils/urls'
+import SwiperComponent from '../shared/swiper'
 
 const Products = () => {
 	const [data, setData] = useState([])
@@ -9,7 +11,7 @@ const Products = () => {
 	const getProducts = async () => {
 		let res = await apiCleint({
 			method: 'GET',
-			url: '/products',
+			url: productsUrl,
 		})
 		console.log(res)
 
@@ -31,6 +33,7 @@ const Products = () => {
 
 	return (
 		<div>
+			<SwiperComponent />
 			<div className='container min-h-[1000px] pb-[200px]'>
 				<div className='catalog w-full h-[100px]'></div>
 				<div className='products w-full min-h-[900px] grid grid-cols-4 gap-[30px]'>
@@ -55,7 +58,7 @@ const Products = () => {
 									</h2>
 									<p className='font-bold'>{product.category}</p>
 									<p className='font-bold'>${product.price}</p>
-									<button className='bg-black text-white w-full gap-[5px] h-[40px] rounded-xl flex justify-center items-center uppercase text-[15px]'>
+									<button className='bg-black text-white w-full gap-[5px] h-[40px] rounded-xl flex justify-center items-center uppercase text-[15px] cursor-pointer'>
 										купить
 										<FaCartShopping />
 									</button>

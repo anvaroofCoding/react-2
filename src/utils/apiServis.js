@@ -18,7 +18,6 @@ apiCleint.interceptors.response.use(
 
 apiCleint.interceptors.request.use(
 	conf => {
-		console.log(conf)
 		conf.headers.set('Authorition:', 'beazerUrl')
 		return conf
 	},
