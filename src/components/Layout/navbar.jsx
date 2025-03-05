@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { FaRegStar, FaSearch, FaUserAlt } from 'react-icons/fa'
 import { FaCartShopping } from 'react-icons/fa6'
+import { cardContext } from '../../context/cardList'
 
 const Navbar = () => {
+	const { count, setCount } = useContext(cardContext)
+	console.log(count.length)
 	return (
 		<div className='sticky z-10 top-0'>
 			<nav className='bg-black text-white '>
@@ -27,7 +30,7 @@ const Navbar = () => {
 						<FaUserAlt />
 						<div className='flex items-center gap-[5px]'>
 							<FaCartShopping />
-							<span>0</span>
+							<sup>{count.length}</sup>
 						</div>
 					</div>
 				</div>

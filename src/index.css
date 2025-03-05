@@ -8,3 +8,20 @@
 .real-shadow {
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+
+.custom-select .ant-select-selector {
+	background-color: black !important; /* Orqa fon rangi */
+	color: white !important; /* Matn rangi */
+	border: 1px solid black !important; /* Chegara */
+}
+.custom-select .ant-select-selection-placeholder {
+	color: white !important;
+	opacity: 1 !important;
+}
+.custom-select .ant-select-arrow {
+	color: white !important; /* Ikonka rangi oq bo'ladi */
+	font-size: 16px !important; /* Kattaligi */
+}
+.custom-select .ant-select-arrow svg {
+	fill: white !important;
+}
