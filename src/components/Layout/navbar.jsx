@@ -1,25 +1,26 @@
 import React, { useContext } from 'react'
 import { FaRegStar, FaSearch, FaUserAlt } from 'react-icons/fa'
 import { FaCartShopping } from 'react-icons/fa6'
+import { Link } from 'react-router-dom'
 import { cardContext } from '../../context/cardList'
 
 const Navbar = () => {
 	const { count, setCount } = useContext(cardContext)
-	console.log(count.length)
 	return (
 		<div className='sticky z-10 top-0'>
 			<nav className='bg-black text-white '>
 				<div className='container  h-[100px] flex flex-row justify-between items-center'>
 					<ul className='flex gap-[30px]'>
-						<li className='hover:text-blue-400 cursor-pointer'>Сувениры</li>
-						<li className='hover:text-blue-400 cursor-pointer'>
-							Красота и здоровье
-						</li>
-						<li className='hover:text-blue-400 cursor-pointer'>Электроника</li>
-						<li className='hover:text-blue-400 cursor-pointer'>Бренды</li>
-						<li className='hover:text-blue-400 cursor-pointer'>Обувь</li>
-						<li className='hover:text-blue-400 cursor-pointer'>Хоз. товары</li>
-						<li className='hover:text-blue-400 cursor-pointer'>Авто товары</li>
+						<Link to={'/'}>
+							<li className='hover:text-blue-400 cursor-pointer font-bold'>
+								Home
+							</li>
+						</Link>
+						<Link to={'/login'}>
+							<li className='hover:text-blue-400 cursor-pointer font-bold'>
+								Login
+							</li>
+						</Link>
 					</ul>
 					<div className='flex gap-[20px] items-center'>
 						<div className='flex items-center border border-white/30 p-2 rounded-xl'>
@@ -27,11 +28,15 @@ const Navbar = () => {
 							<FaSearch />
 						</div>
 						<FaRegStar />
-						<FaUserAlt />
-						<div className='flex items-center gap-[5px]'>
-							<FaCartShopping />
-							<sup>{count.length}</sup>
-						</div>
+						<Link to={'/profile'}>
+							<FaUserAlt />
+						</Link>
+						<Link to={'/shopping'}>
+							<div className='flex items-center gap-[5px]'>
+								<FaCartShopping />
+								<sup>{count.length}</sup>
+							</div>
+						</Link>
 					</div>
 				</div>
 			</nav>

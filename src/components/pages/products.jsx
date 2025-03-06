@@ -133,7 +133,6 @@ const Products = () => {
 										</h2>
 										<p className='font-bold'>{product.category}</p>
 										<p className='font-bold'>${product.price}</p>
-
 										<button
 											onClick={() => {
 												pushCard(product)
